@@ -1157,3 +1157,16 @@ body.home #primary-nav {
 .wp-block-table.bordered table {
   @extend .table, .table-bordered, .table-sm;
 }
+
+.author-orcid {
+	text-transform: none;
+	a {
+		color: $black;
+	}
+
+	.author-orcid-unauth {
+		font-size: $font-size-base;
+		font-weight: $font-weight-light;
+		color: $gray-600;
+	}
+}
