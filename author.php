@@ -29,7 +29,8 @@ get_header();
 
 						<?php $curauth = ehri_get_current_archive_author() ?>
 
-						<h1><?php echo esc_html__( 'Articles by', 'understrap' ) . ' ' . esc_html( $curauth->display_name ); ?></h1>
+						<h1><?php echo esc_html__( 'Articles by', 'ehri' ) . ' ' . esc_html( $curauth->display_name ); ?></h1>
+
 
 					</header><!-- .page-header -->
 

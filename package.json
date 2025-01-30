@@ -1,10 +1,11 @@
 {
-  "name": "ehri-wp-theme",
-  "version": "1.0.3",
-  "description": "EHRI Wordpress Theme",
+  "name": "ehri-document-blog-wordpress-theme",
+  "version": "1.0.4",
+  "description": "EHRI Document Blog Wordpress Theme",
   "main": "index.js",
   "scripts": {
     "dist": "grunt package",
+    "watch": "grunt",
     "postinstall": "grunt copy"
   },
   "engines": {
@@ -12,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EHRI/ehri-wp-theme.git"
+    "url": "https://github.com/EHRI/ehri-document-blog-wordpress-theme.git"
   },
   "keywords": [
     "ehri",
@@ -24,9 +25,9 @@
   "author": "EHRI",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/EHRI/ehri-wp-theme/issues"
+    "url": "https://github.com/EHRI/ehri-document-blog-wordpress-theme/issues"
   },
-  "homepage": "https://github.com/EHRI/ehri-wp-theme",
+  "homepage": "https://github.com/EHRI/ehri-document-blog-wordpress-theme",
   "dependencies": {
     "bootstrap": "4.3.1",
     "font-awesome": "^4.7.0",
