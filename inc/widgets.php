@@ -303,21 +303,24 @@ class Ehri_Author_Info extends WP_Widget {
 				<?php if ( ehri_has_gravitar( $curauth ) ) : ?>
 					<?php echo get_avatar( $curauth->ID ); ?>
 				<?php endif; ?>
+				<?php $website = get_the_author_meta( 'user_url', $curauth->ID ); ?>
+				<?php if ( ! empty( $website ) ) : ?>
+					<p class="author-website">
+						<a href="<?php echo esc_url( $website ); ?>">
+							<i class="fa fa-globe"></i>
+							<?php echo esc_html( $website ); ?>
+						</a>
+					</p>
+				<?php endif; ?>
 
 				<?php $orcid = get_the_author_meta( 'orcid', $curauth->ID ); ?>
 				<?php if ( ! empty( $orcid ) ) : ?>
 					<div class="author-orcid">
-
 						<a target="_blank" href="https://orcid.org/<?php echo esc_html( $orcid ); ?>" title="<?php echo __('View ORCID record'); ?>" aria-label="<?php echo __('View ORCID record'); ?>">
-
 							<img src="<?php echo get_theme_file_uri( "img/ORCID-iD_icon_unauth_vector.svg" ); ?>" alt="ORCID iD" />
-
 							<?php echo esc_html( $orcid ); ?>
-
 						</a>
-
 						<span class="author-orcid-unauth"><?php echo __('(unauthenticated)'); ?></span>
-
 					</div>
 				<?php endif; ?>
 			</div>

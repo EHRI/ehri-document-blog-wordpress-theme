@@ -1170,3 +1170,16 @@ body.home #primary-nav {
 		color: $gray-600;
 	}
 }
+
+.author-website a {
+	// Slightly fussy CSS to ensure the icon and text are on the same line
+	// and long URLs break correctly
+	display: flex;
+	gap: .25rem;
+	align-items: baseline;
+	overflow-wrap: anywhere;
+}
+
+.user-orcid-info input[type='text']:invalid {
+	border-color: red;
+}
