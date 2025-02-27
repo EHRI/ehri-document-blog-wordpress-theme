@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/EHRI/ehri-document-blog-wordpress-theme",
   "dependencies": {
-    "bootstrap": "4.3.1",
+    "bootstrap": "5.0.0",
     "font-awesome": "^4.7.0",
     "undescores-for-npm": "^1.0.0"
   },
