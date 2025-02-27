@@ -134,17 +134,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<a class="follow-button" href="https://facebook.com/EHRIproject" title="Follow EHRI on Facebook">
 
-			<i class="fa fa-facebook" aria-hidden="true"></i>
+			<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
 
 			<span class="sr-only">Facebook</span>
 
 		</a>
 
-		<a class="follow-button" href="https://twitter.com/EHRIproject" title="Follow EHRI on Twitter">
+		<a class="follow-button" href="https://bsky.app/profile/ehri-project.eu" title="Follow EHRI on Bluesky">
 
-			<i class="fa fa-twitter" aria-hidden="true"></i>
+			<i class="fa-brands fa-bluesky" aria-hidden="true"></i>
 
-			<span class="sr-only">Twitter</span>
+			<span class="sr-only">Bluesky</span>
 
 		</a>
 

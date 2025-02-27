@@ -3,7 +3,12 @@
 @import "bootstrap4/bootstrap";
 // <--------- Loads Bootstrap3 or Bootstrap4. Change from /bootstrap3 to /bootstrap4 Watch out! just for testing in the moment!
 //Optional files - If you dont use the corresponding scripts/fonts comment em out
-@import "font-awesome/font-awesome";
+@import "fa/fontawesome";
+@import "fa/regular";
+@import "fa/brands";
+@import "fa/solid";
+
+
 // <------- Font Awesome Icon font
 @import "underscores/galleries";
 // <------- Underscores media styles
@@ -850,7 +855,7 @@ body.home #primary-nav {
   }
 
   .reply {
-	@extend .pull-right;
+	//@extend .pull-right;
 
 	a {
 	  @extend .btn, .btn-primary;

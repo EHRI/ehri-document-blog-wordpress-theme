@@ -37,16 +37,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endif; ?>
 
 				<div class="social-links">
-					<a href="https://facebook.com/EHRIproject">
-						<i class="fa fa-facebook" aria-hidden="true"></i>
+					<a href="https://facebook.com/EHRIproject" title="Follow EHRI on Facebook">
+						<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
 						Facebook
 					</a>
-					<a href="https://twitter.com/EHRIproject">
-						<i class="fa fa-twitter" aria-hidden="true"></i>
-						Twitter
+					<a href="https://bsky.app/profile/ehri-project.eu" title="Follow EHRI on Bluesky">
+						<i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+						Bluesky
 					</a>
-					<a href="/feed/">
-						<i class="fa fa-rss" aria-hidden="true"></i>
+					<a href="/feed/" title="RSS Feed">
+						<i class="fa-solid fa-rss" aria-hidden="true"></i>
 						RSS
 					</a>
 				</div>

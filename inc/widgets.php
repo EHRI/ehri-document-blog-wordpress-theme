@@ -307,7 +307,7 @@ class Ehri_Author_Info extends WP_Widget {
 				<?php if ( ! empty( $website ) ) : ?>
 					<p class="author-website">
 						<a href="<?php echo esc_url( $website ); ?>">
-							<i class="fa fa-globe"></i>
+							<i class="fa-solid fa-globe"></i>
 							<?php echo esc_html( $website ); ?>
 						</a>
 					</p>
