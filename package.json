@@ -1,6 +1,6 @@
 {
   "name": "ehri-document-blog-wordpress-theme",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "EHRI Document Blog Wordpress Theme",
   "main": "index.js",
   "scripts": {
