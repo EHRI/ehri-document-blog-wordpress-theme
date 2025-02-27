@@ -21,14 +21,21 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 ### Running
 To work with and compile your Sass files on the fly start:
 
-- `$ ./node_modules/.bin/grunt watch`
+- `$ npm run watch`
+
+### Build
+To create a ready-for-production version of your CSS and JS files:
+
+- `$ npm run dist`
+
+This will result in a zipped file in the `pkg` folder that you can upload to your Wordpress site.
 
 ### Supported Plugins
 
 This theme includes some theming support for the following plugins:
 
  - Contextual Related Posts (CRP) (Disable default plugin rendered output on posts and pages)
- - EZ-Toc (Enable "Prevent loading of default styles...")
+ - EZ-Toc (Enable "Prevent loading of default styles..." and disable "Sticky TOC")
  - Simple Lightbox (SLB)
  - Co-Authors Plus
 
