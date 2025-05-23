@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      uses: php-actions/composer@v6
+
+    # TODO: add tests!? might be good!
+
+    - name: PHP Code Sniffer
+      run: composer run phpcs

@@ -35,14 +35,17 @@ if ( post_password_required() ) {
 			if ( 1 === (int) $comments_number ) {
 				printf( esc_html_x( 'One Comment', 'comments title', 'understrap' ) );
 			} else {
-				printf( // WPCS: XSS OK.
-					esc_html( _nx(
-						'%1$s Comment',
-						'%1$s Comments',
-						$comments_number,
-						'comments title',
-						'understrap'
-					) ),
+				printf(
+					esc_html(
+						// translators: placeholder for pluralisation.
+						_nx(
+							'%1$s Comment',
+							'%1$s Comments',
+							$comments_number,
+							'comments title',
+							'understrap'
+						)
+					),
 					number_format_i18n( $comments_number )
 				);
 			}
@@ -78,10 +81,10 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'walker'     => new Ehri_Walker_Comment(),
-					'style'      => 'ol',
-					'short_ping' => true,
-					'format'     => 'html5',
+					'walker'      => new Ehri_Walker_Comment(),
+					'style'       => 'ol',
+					'short_ping'  => true,
+					'format'      => 'html5',
 					'avatar_size' => 64,
 				)
 			);
@@ -111,21 +114,25 @@ if ( post_password_required() ) {
 
 		<?php endif; // check for comment navigation. ?>
 
-	<?php endif; // endif have_comments(). ?>
+	<?php endif; ?>
 
 	<?php
 	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	if ( ! comments_open() && 0 !== (int) get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 		?>
 
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'understrap' ); ?></p>
 
 	<?php endif; ?>
 
-	<?php comment_form(array(
-		'comment_notes_before' => '<p>Your email will not be published.</p>',
-		'label_submit' => __('Submit'),
-		'class_submit' => 'comment-action'
-	) ); // Render comments form. ?>
+	<?php
+	comment_form(
+		array(
+			'comment_notes_before' => '<p>Your email will not be published.</p>',
+			'label_submit'         => __( 'Submit' ),
+			'class_submit'         => 'comment-action',
+		)
+	); // Render comments form.
+	?>
 
-</div><!-- #comments -->
+</div>

@@ -31,8 +31,9 @@ get_header();
 
 							<h1 class="page-title">Search Results</h1>
 
-							<?php if ($q = trim(get_search_query())): ?>
-								<h2 class="text-muted"><?php echo "\"$q\""; ?></h2>
+							<?php $q = trim( get_search_query() ); ?>
+							<?php if ( $q ) : ?>
+								<h2 class="text-muted"><?php echo esc_html( sprintf( '"%s"', $q ) ); ?></h2>
 							<?php endif; ?>
 
 						</header><!-- .page-header -->
@@ -40,7 +41,10 @@ get_header();
 						<div class="post-list">
 
 							<?php /* Start the Loop */ ?>
-							<?php while ( have_posts() ) : the_post(); ?>
+							<?php
+							while ( have_posts() ) :
+								the_post();
+								?>
 
 								<?php
 								/**

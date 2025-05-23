@@ -994,7 +994,9 @@ body.home #primary-nav {
 }
 
 // Related posts using the Contextual Related Posts plugin
-.crp_related, .related-posts {
+.crp_related,
+.related-posts
+{
   font-size: $font-size-sm;
 
   .related-post-items {

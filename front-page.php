@@ -18,10 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<?php if ( $img = get_the_post_thumbnail_url( get_option( 'page_on_front' ), 'full' ) ): ?>
+<?php $img = get_the_post_thumbnail_url( get_option( 'page_on_front' ), 'full' ); ?>
+<?php if ( $img ) : ?>
 	<style>
 		body.home #wrapper-navbar {
-			background-image: url(<?php echo $img;?>);
+			background-image: url(<?php echo esc_url( $img ); ?>);
 		}
 	</style>
 <?php endif; ?>
@@ -45,7 +46,10 @@ get_header();
 
 						<?php $the_query = new WP_Query( 'posts_per_page=4' ); ?>
 
-						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+						<?php
+						while ( $the_query->have_posts() ) :
+							$the_query->the_post();
+							?>
 
 
 							<?php
@@ -57,7 +61,7 @@ get_header();
 							get_template_part( 'loop-templates/content', get_post_format() );
 							?>
 
-						<?php
+							<?php
 						endwhile;
 						wp_reset_postdata();
 						?>

@@ -17,7 +17,7 @@ if ( ! is_active_sidebar( 'right-sidebar' ) ) {
 
 <div class="widget-area" id="right-sidebar" role="complementary">
 
-	<?php if (is_single()): ?>
+	<?php if ( is_single() ) : ?>
 
 		<?php get_template_part( 'global-templates/share' ); ?>
 

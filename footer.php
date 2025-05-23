@@ -22,14 +22,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<div class="footer-full-section-social">
 
-				<?php if ($mailinglist_url = get_theme_mod('ehri_mailinglist_url', false)): ?>
+				<?php $mailinglist_url = get_theme_mod( 'ehri_mailinglist_url', false ); ?>
+				<?php if ( $mailinglist_url ) : ?>
 
 				<div class="newsletter">
 
 					<h3>Don't miss new articles</h3>
 
 					<a href="<?php echo esc_url( $mailinglist_url ); ?>" class="btn btn-primary btn-lg" target="_blank" rel="noopener" id="subscribe-to-newsletter">
-						Subscribe to our mailing list
+						<?php esc_html_e( 'Subscribe to our mailing list', 'ehri' ); ?>
 					</a>
 
 				</div>
@@ -52,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 
 				<p id="copyright">
-					<span class="text-capitalize">© 2015-<?php echo date("Y"); ?> EHRI Consortium </span>
+					<span class="text-capitalize">© 2015-<?php echo gmdate( 'Y' ); ?> EHRI Consortium </span>
 					&nbsp;
 					&nbsp;
 					<a href="https://ehri-project.eu/content/privacy-statement">Privacy policy</a>
@@ -65,9 +66,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="footer-full-menus">
 
 					<div class="footer-full-menu">
-						<?php foreach ( wp_get_nav_menu_items( 'footer1' ) as $item ): ?>
-							<p class="<?php if ( $item->object_id === get_the_ID() ) echo "active"; ?>">
-								<a href="<?php echo esc_url( $item->url ); ?>"><?php esc_html_e( $item->title ); ?></a>
+						<?php foreach ( wp_get_nav_menu_items( 'footer1' ) as $item ) : ?>
+							<p class="
+							<?php
+							if ( get_the_ID() === $item->object_id ) {
+								echo 'active';}
+							?>
+							">
+								<a href="<?php echo esc_url( $item->url ); ?>"><?php echo esc_html( $item->title ); ?></a>
 							</p>
 						<?php endforeach; ?>
 					</div>
@@ -80,10 +86,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</a>
 						</p>
 						<ul class="footer-categories">
-							<?php foreach ( get_categories() as $category ): ?>
+							<?php foreach ( get_categories() as $category ) : ?>
 								<li>
 									<a href="<?php echo get_category_link( $category ); ?>">
-										<?php esc_html_e( $category->name ); ?>
+										<?php echo esc_html( $category->name ); ?>
 									</a>
 								</li>
 							<?php endforeach; ?>
@@ -92,8 +98,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 
 					<div class="footer-full-menu" id="footer-attributions">
-						<img src="<?php echo esc_url( get_theme_file_uri( "img/eu_logo.gif" ) ); ?>" alt="EU Logo" width="68" height="45"/>
-						<p>The EHRI Project is supported by the European Commission</p>
+						<img src="<?php echo esc_url( get_theme_file_uri( 'img/eu_logo.gif' ) ); ?>" alt="EU Logo" width="68" height="45"/>
+						<p>
+							<?php esc_html_e( 'The EHRI Project is supported by the European Commission', 'ehri' ); ?>
+						</p>
 					</div>
 
 				</div>
