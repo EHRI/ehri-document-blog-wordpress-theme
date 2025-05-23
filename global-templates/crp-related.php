@@ -1,42 +1,56 @@
-<?php if ( function_exists( 'get_crp_posts_id' ) ): ?>
+<?php
+/**
+ * Auxilliary functions for contextual related posts (CRP) plugin.
+ *
+ * @package ehri-wp-theme
+ */
 
-	<?php $this_post = get_post(); ?>
+if ( class_exists( 'CRP_Query' ) ) {
+	global $post;
+	$args = array(
+		'posts_per_page'      => 6,
+		'ignore_sticky_posts' => 1,
+	);
 
-	<?php if ( $related = get_crp_posts_id( array('postid' => $this_post->ID, 'limit' => 3) ) ): ?>
+	$related_query = new CRP_Query( $args );
+	?>
 
-		<div class="related-posts" id="related-posts">
+	<?php if ( $related_query->have_posts() ) : ?>
 
-			<h3>Related articles</h3>
+		<div class="related-posts">
+
+			<h3><?php esc_html_e( 'Related Posts', 'ehri' ); ?></h3>
 
 			<div class="related-post-items">
 
-				<?php foreach ( $related as $id ): ?>
+			<?php
+			while ( $related_query->have_posts() ) :
+				$related_query->the_post();
+				?>
 
-					<?php
-						// Initialise global post data in the loop, restored afterwards...
-						global $post; $post = get_post( $id->ID ); setup_postdata( $post ); ?>
+				<div class="related-post-item">
 
-					<div class="related-post-item">
+					<article class="related-post">
 
-						<article class="related-post">
+						<img alt="<?php echo esc_attr( get_the_title() ); ?>" class="img-fluid" src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>"/>
 
-							<img alt="<?php echo get_the_title() ?>" class="img-fluid" src="<?php echo get_the_post_thumbnail_url(); ?>"/>
+						<h3>
+							<a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>
+						</h3>
 
-							<h3><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+						<div class="related-post-meta">
 
-							<div class="related-post-meta">
+							<?php ehri_posted_on(); ?>
 
-								<?php ehri_posted_on(); ?>
+						</div>
 
-							</div>
+						<?php echo get_the_excerpt(); ?>
 
-							<?php echo get_the_excerpt(); ?>
+					</article>
 
-						</article>
+				</div>
 
-					</div>
-
-				<?php endforeach; ?>
+			<?php endwhile; ?>
 
 			</div>
 
@@ -44,7 +58,7 @@
 
 	<?php endif; ?>
 
-	<?php setup_postdata( $this_post ); ?>
-
-<?php endif; ?>
+	<?php
+	wp_reset_postdata();
+}
 
