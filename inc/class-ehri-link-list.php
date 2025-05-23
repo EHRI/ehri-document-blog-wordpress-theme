@@ -46,13 +46,16 @@ if ( ! class_exists( 'Ehri_Link_List' ) ) {
 		 */
 		private function get_post_external_refs( int $post_id ): array {
 			$urls = array();
-			foreach ( get_post_meta( $post_id, 'external_links' ) as $field ) {
-				$links = preg_split( '/\r\n|\r|\n/', $field );
-				if ( $links ) {
-					foreach ( $links as $link ) {
-						$name_url = preg_split( '/\s*=\s*/', $link, 2, PREG_SPLIT_NO_EMPTY );
-						if ( ( $name_url ) && count( $name_url ) === 2 && filter_var( $name_url[1], FILTER_VALIDATE_URL ) ) {
-							$urls[] = $name_url;
+			$ext_links = get_post_meta( $post_id, 'external_links' );
+			if ( $ext_links ) {
+				foreach ( $ext_links as $field ) {
+					$links = preg_split( '/\r\n|\r|\n/', $field );
+					if ( $links ) {
+						foreach ( $links as $link ) {
+							$name_url = preg_split( '/\s*=\s*/', $link, 2, PREG_SPLIT_NO_EMPTY );
+							if ( ( $name_url ) && count( $name_url ) === 2 && filter_var( $name_url[1], FILTER_VALIDATE_URL ) ) {
+								$urls[] = $name_url;
+							}
 						}
 					}
 				}
