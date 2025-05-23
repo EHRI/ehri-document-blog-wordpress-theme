@@ -31,6 +31,7 @@ $understrap_includes = array(
 	'/class-understrap-wp-bootstrap-navwalker.php', // Load custom WordPress nav walker.
 	'/editor.php',                                  // Load Editor functions.
 	'/authors.php',                                 // Customisation of author information.
+	'/actions.php',                                 // Custom ajax actions.
 );
 
 foreach ( $understrap_includes as $file ) {
