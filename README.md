@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/EHRI/ehri-document-blog-wordpress-theme/workflows/CI/badge.svg)](https://github.com/EHRI/ehri-document-blog-wordpress-theme/actions?query=workflow%3ACI)
+
 # EHRI Wordpress Theme
 
 Website: [https://blog.ehri-project.eu](https://blog.ehri-project.eu)
