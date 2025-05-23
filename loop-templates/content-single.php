@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
+		<?php do_action( 'after_post_title' ); ?>
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-body">
@@ -32,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="entry-content">
 
-			<?php ehri_post_translations($post->ID); ?>
+			<?php ehri_post_translations( $post->ID ); ?>
 
 			<?php the_content(); ?>
 

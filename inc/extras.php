@@ -42,14 +42,14 @@ if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
 	/**
 	 * Setup body classes.
 	 *
-	 * @param string $classes CSS classes.
+	 * @param array $classes CSS classes.
 	 *
 	 * @return mixed
 	 */
 	function understrap_adjust_body_class( $classes ) {
 
 		foreach ( $classes as $key => $value ) {
-			if ( 'tag' == $value ) {
+			if ( 'tag' === $value ) {
 				unset( $classes[ $key ] );
 			}
 		}
@@ -80,11 +80,11 @@ if ( ! function_exists( 'understrap_change_logo_class' ) ) {
 	}
 }
 
-/**
- * Display navigation to next/previous post when applicable.
- */
 
-if ( ! function_exists ( 'understrap_post_nav' ) ) {
+if ( ! function_exists( 'understrap_post_nav' ) ) {
+	/**
+	 * Display navigation to next/previous post when applicable.
+	 */
 	function understrap_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
@@ -119,6 +119,7 @@ function understrap_pingback() {
 		echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '">' . "\n";
 	}
 }
+
 add_action( 'wp_head', 'understrap_pingback' );
 
 /**
@@ -129,17 +130,25 @@ function understrap_mobile_web_app_meta() {
 	echo '<meta name="apple-mobile-web-app-capable" content="yes">' . "\n";
 	echo '<meta name="apple-mobile-web-app-title" content="' . esc_attr( get_bloginfo( 'name' ) ) . ' - ' . esc_attr( get_bloginfo( 'description' ) ) . '">' . "\n";
 }
+
 add_action( 'wp_head', 'understrap_mobile_web_app_meta' );
 
-/**
- * Only return posts from search results.
- */
-function ehri_search_filter( $query ) {
-	if ( $query->is_search && ! is_admin() ) {
-		$query->set( 'post_type', array('post') );
-	}
+if ( ! function_exists( 'ehri_search_filter' ) ) {
+	/**
+	 * Only return posts from search results.
+	 *
+	 * @param WP_Query $query the search query.
+	 *
+	 * @return WP_Query the modified query.
+	 */
+	function ehri_search_filter( WP_Query $query ): WP_Query {
+		if ( $query->is_search && ! is_admin() ) {
+			$query->set( 'post_type', array( 'post' ) );
+		}
 
-	return $query;
+		return $query;
+	}
 }
+
 add_filter( 'pre_get_posts', 'ehri_search_filter' );
 

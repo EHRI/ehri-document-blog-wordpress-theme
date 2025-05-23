@@ -11,7 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'ehri_pagination' ) ) {
 
-	function ehri_pagination( $args = array(), $class = 'pagination' ) {
+	/**
+	 * EHRI pagination controls.
+	 *
+	 * @param array  $args widget arguments.
+	 * @param string $class the pagination class.
+	 *
+	 * @return void
+	 */
+	function ehri_pagination( array $args = array(), string $class = 'pagination' ) {
 
 		if ( $GLOBALS['wp_query']->max_num_pages <= 1 ) {
 			return;

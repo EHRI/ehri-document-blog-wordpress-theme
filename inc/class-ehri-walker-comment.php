@@ -1,6 +1,8 @@
 <?php
 /**
- * EHRI comment walker
+ * EHRI comment walker.
+ *
+ * @package ehri-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,7 +44,7 @@ if ( ! class_exists( 'Ehri_Walker_Comment' ) ) {
 			<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 				<?php
-				if ( 0 != $args['avatar_size'] ) {
+				if ( 0 !== $args['avatar_size'] ) {
 					echo get_avatar( $comment, $args['avatar_size'] );}
 				?>
 
@@ -54,11 +56,11 @@ if ( ! class_exists( 'Ehri_Walker_Comment' ) ) {
 							$args,
 							array(
 								'reply_text' => '<i class="material-icons" aria-hidden="true">reply</i>',
-								'add_below' => 'div-comment',
-								'depth'     => $depth,
-								'max_depth' => $args['max_depth'],
-								'before'    => '<div class="reply">',
-								'after'     => '</div>',
+								'add_below'  => 'div-comment',
+								'depth'      => $depth,
+								'max_depth'  => $args['max_depth'],
+								'before'     => '<div class="reply">',
+								'after'      => '</div>',
 							)
 						)
 					);
@@ -82,7 +84,7 @@ if ( ! class_exists( 'Ehri_Walker_Comment' ) ) {
 							<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
 						</div><!-- .comment-metadata -->
 
-						<?php if ( '0' == $comment->comment_approved ) : ?>
+						<?php if ( '0' === $comment->comment_approved ) : ?>
 							<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
 						<?php endif; ?>
 					</div><!-- .comment-meta -->
