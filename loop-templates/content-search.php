@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<div class="entry-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url( $post->ID, 'medium' ); ?>')"></div>
+	<div class="entry-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url( $post->ID, 'medium' ); ?>')">
+		<!-- Nothing here. -->
+	</div>
 
 	<div class="entry-body">
 

@@ -10,21 +10,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $understrap_includes = array(
-	'/actions.php',                         // Initialise custom actions
-	'/theme-settings.php',                  // Initialize theme default settings.
-	'/setup.php',                           // Theme setup and custom theme supports.
-	'/widgets.php',                         // Register widget area.
-	'/enqueue.php',                         // Enqueue scripts and styles.
-	'/template-tags.php',                   // Custom template tags for this theme.
-	'/pagination.php',                      // Custom pagination for this theme.
-	'/hooks.php',                           // Custom hooks.
-	'/extras.php',                          // Custom functions that act independently of the theme templates.
-	'/customizer.php',                      // Customizer additions.
-	'/custom-comments.php',                 // Custom Comments file.
-	'/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker.
-	'/class-ehri-walker-comment.php',       // Load custom WordPress nav walker.
-	'/editor.php',                          // Load Editor functions.
-	'/authors.php',                         // Customisation of author information.
+	'/theme-settings.php',                          // Initialize theme default settings.
+	'/setup.php',                                   // Theme setup and custom theme supports.
+	'/widgets.php',                                 // Register widget area.
+	'/enqueue.php',                                 // Enqueue scripts and styles.
+	'/template-tags.php',                           // Custom template tags for this theme.
+	'/pagination.php',                              // Custom pagination for this theme.
+	'/hooks.php',                                   // Custom hooks.
+	'/extras.php',                                  // Custom functions that act independently of the theme templates.
+	'/customizer.php',                              // Customizer additions.
+	'/custom-comments.php',                         // Custom Comments file.
+	'/class-ehri-post-metadata.php',                // Load post metadata widget.
+	'/class-ehri-post-comment-info.php',            // Load post comment info widget.
+	'/class-ehri-post-categories.php',              // Load post categories widget.
+	'/class-ehri-post-tags.php',                     // Load post tags widget.
+	'/class-ehri-author-info.php',                  // Load author info widget.
+	'/class-ehri-authors-list.php',                 // Load authors list widget.
+	'/class-ehri-link-list.php',                    // Load link list widget.
+	'/class-ehri-walker-comment.php',               // Load custom WordPress nav walker.
+	'/class-understrap-wp-bootstrap-navwalker.php', // Load custom WordPress nav walker.
+	'/editor.php',                                  // Load Editor functions.
+	'/authors.php',                                 // Customisation of author information.
 );
 
 foreach ( $understrap_includes as $file ) {

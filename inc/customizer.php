@@ -21,8 +21,8 @@ if ( ! function_exists( 'understrap_customize_register' ) ) {
 	 * @param object $wp_customize Customizer reference.
 	 */
 	function understrap_customize_register( $wp_customize ) {
-		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	}
 }
@@ -40,18 +40,18 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 		$wp_customize->add_section(
 			'ehri_theme_layout_options',
 			array(
-				'title' => __( 'Theme Layout Settings' ),
-				'capability' => 'edit_theme_options',
+				'title'       => __( 'Theme Layout Settings' ),
+				'capability'  => 'edit_theme_options',
 				'description' => __( 'EHRI theme layout settings' ),
-				'priority' => 160,
+				'priority'    => 160,
 			)
 		);
 
 		$wp_customize->add_setting(
 			'ehri_header_image',
 			array(
-				'default' => 'TODO',
-				'type' => 'theme_mod',
+				'default'    => 'TODO',
+				'type'       => 'theme_mod',
 				'capability' => 'edit_theme_options',
 			)
 		);
@@ -61,36 +61,44 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				$wp_customize,
 				'ehri_header_image',
 				array(
-					'label' => __( 'Hero header image', 'ehri' ),
+					'label'       => __( 'Hero header image', 'ehri' ),
 					'description' => __( 'Choose a hero image for the front page', 'ehri' ),
-					'section' => 'ehri_theme_layout_options',
-					'settings' => 'ehri_header_image',
-					'type' => 'input',
-					'priority' => '10',
+					'section'     => 'ehri_theme_layout_options',
+					'settings'    => 'ehri_header_image',
+					'type'        => 'input',
+					'priority'    => '10',
 				)
 			)
 		);
 	}
-} // endif function_exists( 'understrap_theme_customize_register' ).
+}
+
 add_action( 'customize_register', 'understrap_theme_customize_register' );
 
 if ( ! function_exists( 'ehri_theme_customize_register' ) ) {
-	function ehri_theme_customize_register( $wp_customize ) {
+	/**
+	 * EHRI theme customization fields.
+	 *
+	 * @param WP_Customize_Manager $wp_customize the customizer manager.
+	 *
+	 * @return void
+	 */
+	function ehri_theme_customize_register( WP_Customize_Manager $wp_customize ) {
 		$wp_customize->add_section(
 			'ehri_theme_header_options',
 			array(
-				'title' => __( 'Theme Header Settings' ),
-				'capability' => 'edit_theme_options',
+				'title'       => __( 'Theme Header Settings' ),
+				'capability'  => 'edit_theme_options',
 				'description' => __( 'EHRI theme header settings' ),
-				'priority' => 170,
+				'priority'    => 170,
 			)
 		);
 
 		$wp_customize->add_setting(
 			'ehri_plausible_domain',
 			array(
-				'default' => '',
-				'type' => 'theme_mod',
+				'default'    => '',
+				'type'       => 'theme_mod',
 				'capability' => 'edit_theme_options',
 			)
 		);
@@ -100,32 +108,31 @@ if ( ! function_exists( 'ehri_theme_customize_register' ) ) {
 				$wp_customize,
 				'ehri_plausible_domain',
 				array(
-					'label' => __( 'Plausible Analytics domain', 'ehri' ),
+					'label'       => __( 'Plausible Analytics domain', 'ehri' ),
 					'description' => __( 'Set the domain for adding a Plausible Analytics tracking script', 'ehri' ),
-					'section' => 'ehri_theme_header_options',
-					'settings' => 'ehri_plausible_domain',
-					'type' => 'input',
-					'priority' => '10',
+					'section'     => 'ehri_theme_header_options',
+					'settings'    => 'ehri_plausible_domain',
+					'type'        => 'input',
+					'priority'    => '10',
 				)
-
 			)
 		);
 
 		$wp_customize->add_section(
 			'ehri_theme_footer_options',
 			array(
-				'title' => __( 'Theme Footer Settings' ),
-				'capability' => 'edit_theme_options',
+				'title'       => __( 'Theme Footer Settings' ),
+				'capability'  => 'edit_theme_options',
 				'description' => __( 'EHRI theme footer settings' ),
-				'priority' => 171,
+				'priority'    => 171,
 			)
 		);
 
 		$wp_customize->add_setting(
 			'ehri_mailinglist_url',
 			array(
-				'default' => '',
-				'type' => 'theme_mod',
+				'default'    => '',
+				'type'       => 'theme_mod',
 				'capability' => 'edit_theme_options',
 			)
 		);
@@ -135,14 +142,13 @@ if ( ! function_exists( 'ehri_theme_customize_register' ) ) {
 				$wp_customize,
 				'ehri_mailinglist_url',
 				array(
-					'label' => __( 'Mailing List URL', 'ehri' ),
+					'label'       => __( 'Mailing List URL', 'ehri' ),
 					'description' => __( 'Set the URL for signing up to the mailing list', 'ehri' ),
-					'section' => 'ehri_theme_footer_options',
-					'settings' => 'ehri_mailinglist_url',
-					'type' => 'input',
-					'priority' => '10',
+					'section'     => 'ehri_theme_footer_options',
+					'settings'    => 'ehri_mailinglist_url',
+					'type'        => 'input',
+					'priority'    => '10',
 				)
-
 			)
 		);
 	}

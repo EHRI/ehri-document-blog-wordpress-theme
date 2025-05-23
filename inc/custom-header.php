@@ -12,6 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'after_setup_theme', 'understrap_custom_header_setup' );
 
 if ( ! function_exists( 'understrap_custom_header_setup' ) ) {
+	/**
+	 * Header customisation.
+	 *
+	 * @return void
+	 */
 	function understrap_custom_header_setup() {
 
 		/**

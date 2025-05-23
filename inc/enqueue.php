@@ -28,7 +28,10 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+		// Enqueue the addtoany script. TODO: figure out how to version this?
+		wp_enqueue_script( 'add2any', 'https://static.addtoany.com/menu/page.js', array(), '1.0.0', array( 'strategy' => 'defer' ) );
 	}
-} // endif function_exists( 'understrap_scripts' ).
+}
 
 add_action( 'wp_enqueue_scripts', 'understrap_scripts' );

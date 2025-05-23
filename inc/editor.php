@@ -16,6 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'admin_init', 'understrap_wpdocs_theme_add_editor_styles' );
 
 if ( ! function_exists( 'understrap_wpdocs_theme_add_editor_styles' ) ) {
+	/**
+	 * Add custom editor CSS.
+	 *
+	 * @return void
+	 */
 	function understrap_wpdocs_theme_add_editor_styles() {
 		add_editor_style( 'css/custom-editor-style.min.css' );
 	}
@@ -25,7 +30,16 @@ if ( ! function_exists( 'understrap_wpdocs_theme_add_editor_styles' ) ) {
 add_filter( 'mce_buttons_2', 'understrap_tiny_mce_style_formats' );
 
 if ( ! function_exists( 'understrap_tiny_mce_style_formats' ) ) {
-	function understrap_tiny_mce_style_formats( $styles ) {
+	/**
+	 * Styles for TinyMCE editor control.
+	 *
+	 * TODO: Figure out if this is still needed (probably not?).
+	 *
+	 * @param array $styles list of existing styles.
+	 *
+	 * @return mixed
+	 */
+	function understrap_tiny_mce_style_formats( array $styles ): array {
 
 		array_unshift( $styles, 'styleselect' );
 		return $styles;
@@ -36,6 +50,15 @@ if ( ! function_exists( 'understrap_tiny_mce_style_formats' ) ) {
 add_filter( 'tiny_mce_before_init', 'understrap_tiny_mce_before_init' );
 
 if ( ! function_exists( 'understrap_tiny_mce_before_init' ) ) {
+	/**
+	 * TinyMCE initialization.
+	 *
+	 * TODO: Figure out if this is still needed (probably not?).
+	 *
+	 * @param array $settings settings.
+	 *
+	 * @return mixed
+	 */
 	function understrap_tiny_mce_before_init( $settings ) {
 
 		$style_formats = array(
@@ -72,7 +95,7 @@ if ( ! function_exists( 'understrap_tiny_mce_before_init' ) ) {
 			$style_formats      = array_merge( $orig_style_formats, $style_formats );
 		}
 
-		$settings['style_formats'] = json_encode( $style_formats );
+		$settings['style_formats'] = wp_json_encode( $style_formats );
 		return $settings;
 	}
 }

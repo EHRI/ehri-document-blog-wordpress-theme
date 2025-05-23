@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<h3>Don't miss new articles</h3>
 
-					<a href="<?php echo $mailinglist_url; ?>" class="btn btn-primary btn-lg" target="_blank" rel="noopener" id="subscribe-to-newsletter">
+					<a href="<?php echo esc_url( $mailinglist_url ); ?>" class="btn btn-primary btn-lg" target="_blank" rel="noopener" id="subscribe-to-newsletter">
 						Subscribe to our mailing list
 					</a>
 
@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="footer-full-menu">
 						<?php foreach ( wp_get_nav_menu_items( 'footer1' ) as $item ): ?>
 							<p class="<?php if ( $item->object_id === get_the_ID() ) echo "active"; ?>">
-								<a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a>
+								<a href="<?php echo esc_url( $item->url ); ?>"><?php esc_html_e( $item->title ); ?></a>
 							</p>
 						<?php endforeach; ?>
 					</div>
@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php foreach ( get_categories() as $category ): ?>
 								<li>
 									<a href="<?php echo get_category_link( $category ); ?>">
-										<?php echo $category->name; ?>
+										<?php esc_html_e( $category->name ); ?>
 									</a>
 								</li>
 							<?php endforeach; ?>
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 
 					<div class="footer-full-menu" id="footer-attributions">
-						<img src="<?php echo get_theme_file_uri( "img/eu_logo.gif" ); ?>" alt="EU Logo" width="68" height="45"/>
+						<img src="<?php echo esc_url( get_theme_file_uri( "img/eu_logo.gif" ) ); ?>" alt="EU Logo" width="68" height="45"/>
 						<p>The EHRI Project is supported by the European Commission</p>
 					</div>
 
