@@ -35,7 +35,10 @@ get_header();
 
 						<div class="post-list">
 
-							<?php while ( have_posts() ) : the_post(); ?>
+							<?php
+							while ( have_posts() ) :
+								the_post();
+								?>
 
 								<?php
 								/*

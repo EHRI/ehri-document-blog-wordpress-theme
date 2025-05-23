@@ -3,6 +3,7 @@
     <file>.</file>
     <file>inc</file>
     <file>loop-templates</file>
+    <file>global-templates</file>
 
     <!-- Only check PHP files -->
     <arg name="extensions" value="php"/>

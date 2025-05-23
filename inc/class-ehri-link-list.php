@@ -45,7 +45,7 @@ if ( ! class_exists( 'Ehri_Link_List' ) ) {
 		 * @return array an array of two-element text->url pairs.
 		 */
 		private function get_post_external_refs( int $post_id ): array {
-			$urls = array();
+			$urls      = array();
 			$ext_links = get_post_meta( $post_id, 'external_links' );
 			if ( $ext_links ) {
 				foreach ( $ext_links as $field ) {

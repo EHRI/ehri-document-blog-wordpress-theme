@@ -27,7 +27,7 @@ get_header();
 
 					<header class="page-header author-header">
 
-						<?php $curauth = ehri_get_current_archive_author() ?>
+						<?php $curauth = ehri_get_current_archive_author(); ?>
 
 						<h1><?php esc_html_e( 'Articles by', 'ehri' ) . ' ' . esc_html( $curauth->display_name ); ?></h1>
 
@@ -36,11 +36,14 @@ get_header();
 
 					<div class="post-list">
 
-						<?php while (have_posts()) : the_post(); ?>
+						<?php
+						while ( have_posts() ) :
+							the_post();
+							?>
 
 							<?php get_template_part( 'loop-templates/content', get_post_format() ); ?>
 
-						<?php
+							<?php
 						endwhile;
 						wp_reset_postdata();
 						?>
