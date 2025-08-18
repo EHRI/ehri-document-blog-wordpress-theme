@@ -63,6 +63,8 @@ if ( ! function_exists( 'understrap_setup' ) ) {
 				'comment-list',
 				'gallery',
 				'caption',
+				'script',
+				'style',
 			)
 		);
 
