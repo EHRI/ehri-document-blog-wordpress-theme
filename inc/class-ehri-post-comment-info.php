@@ -46,7 +46,7 @@ if ( ! class_exists( 'Ehri_Post_Comment_Info' ) ) {
 		public function widget( $args, $instance ) {
 			$post_id = get_queried_object_id();
 			if ( $post_id ) {
-				$title  = apply_filters( 'widget_title', $instance['title'] );
+				$title  = apply_filters( 'widget_title', $instance['title'] ?? '' );
 				$number = get_comments_number( $post_id );
 				echo $args['before_widget'];
 				if ( ! empty( $title ) ) {

@@ -46,7 +46,7 @@ if ( ! class_exists( 'Ehri_Post_Metadata' ) ) {
 		public function widget( $args, $instance ) {
 			$post_id = get_queried_object_id();
 			if ( $post_id ) {
-				$title = apply_filters( 'widget_title', $instance['title'] );
+				$title = apply_filters( 'widget_title', $instance['title'] ?? '' );
 				echo $args['before_widget'];
 				if ( ! empty( $title ) ) {
 					echo $args['before_title'] . $title . $args['after_title'];
