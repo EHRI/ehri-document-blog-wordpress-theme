@@ -21,20 +21,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<meta name="copyright" content="EHRI Consortium <?php echo gmdate( 'Y' ); ?>">
 	<meta name="description" content="The European Holocaust Research Infrastructure Document Blog">
 	<meta name="keywords" content="EHRI,Blog,Holocaust,Research,Shoah,Archives,History,Deportations,Camps,Ghettos">
-	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
-	<meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>"/>
+	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+	<meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>">
 	<?php if ( is_single() ) : ?>
-		<meta property="og:description" content="<?php echo esc_attr( wp_filter_nohtml_kses( get_the_excerpt() ) ); ?>"/>
-		<meta property="og:image" content="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>"/>
-		<meta property="og:url" content="<?php echo esc_url( get_the_permalink() ); ?>"/>
-		<meta property="og:type" content="article"/>
-		<meta property="article:published_time" content="<?php echo get_the_date( 'c' ); ?>"/>
-		<meta property="article:modified_time" content="<?php echo get_the_modified_date( 'c' ); ?>"/>
+		<meta property="og:description" content="<?php echo esc_attr( wp_filter_nohtml_kses( get_the_excerpt() ) ); ?>">
+		<meta property="og:image" content="<?php echo esc_url( get_the_post_thumbnail_url( 'large' ) ); ?>">
+		<meta property="og:url" content="<?php echo esc_url( get_the_permalink() ); ?>">
+		<meta property="og:type" content="article">
+		<meta property="article:published_time" content="<?php echo get_the_date( 'c' ); ?>">
+		<meta property="article:modified_time" content="<?php echo get_the_modified_date( 'c' ); ?>">
 	<?php else : ?>
-		<meta property="og:description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>"/>
-		<meta property="og:image" content="<?php echo esc_url( get_theme_file_uri( 'img/ehri-logo@2x.png' ) ); ?>"/>
-		<meta property="og:url" content="<?php echo esc_url( get_home_url() ); ?>"/>
-		<meta property="og:type" content="website"/>
+		<meta property="og:description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
+		<meta property="og:image" content="<?php echo esc_url( get_theme_file_uri( 'img/ehri-logo@2x.png' ) ); ?>">
+		<meta property="og:url" content="<?php echo esc_url( get_home_url() ); ?>">
+		<meta property="og:type" content="website">
 	<?php endif; ?>
 
 	<?php wp_head(); ?>
