@@ -25,7 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>">
 	<?php if ( is_single() ) : ?>
 		<meta property="og:description" content="<?php echo esc_attr( wp_filter_nohtml_kses( get_the_excerpt() ) ); ?>">
-		<meta property="og:image" content="<?php echo esc_url( get_the_post_thumbnail_url( 'large' ) ); ?>">
+		<?php if ( has_post_thumbnail() ) : ?>
+			<meta property="og:image" content="<?php echo esc_url( get_the_post_thumbnail_url(get_the_ID(), 'large' ) ); ?>">
+		<?php else : ?>
+			<meta property="og:image" content="<?php echo esc_url( get_theme_file_uri( 'img/ehri-logo@2x.png' ) ); ?>">
+		<?php endif ; ?>
 		<meta property="og:url" content="<?php echo esc_url( get_the_permalink() ); ?>">
 		<meta property="og:type" content="article">
 		<meta property="article:published_time" content="<?php echo get_the_date( 'c' ); ?>">
