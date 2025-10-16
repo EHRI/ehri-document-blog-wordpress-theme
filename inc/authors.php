@@ -50,6 +50,7 @@ if ( ! function_exists( 'ehri_add_orcid_field' ) ) {
 }
 
 // Add ORCID field to user profile page.
+add_action( 'user_new_form', 'ehri_add_orcid_field' );
 add_action( 'show_user_profile', 'ehri_add_orcid_field' );
 add_action( 'edit_user_profile', 'ehri_add_orcid_field' );
 
@@ -117,5 +118,6 @@ if ( ! function_exists( 'save_orcid_field' ) ) {
 	}
 }
 
+add_action( 'user_register', 'save_orcid_field' );
 add_action( 'personal_options_update', 'save_orcid_field' );
 add_action( 'edit_user_profile_update', 'save_orcid_field' );
