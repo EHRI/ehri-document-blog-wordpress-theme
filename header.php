@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div id="primary-nav-container">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img id="header-logo" class="img-fluid"
-							src="<?php echo esc_url( get_theme_file_uri( 'img/ehri-logo@2x.png' ) ); ?>"
+							src="<?php echo esc_url( get_theme_file_uri( 'img/ehri-logo.svg' ) ); ?>"
 							alt="EHRI Logo"/></a>
 
 					<h1 id="site-title">
