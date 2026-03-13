@@ -300,7 +300,7 @@ if ( ! function_exists( 'ehri_render_open_graph_meta' ) ) {
 		$og_data = array(
 			'locale'    => 'en-GB',
 			'site_name' => get_bloginfo( 'name' ),
-			'title'     => get_the_title(),
+			'title'     => wp_filter_nohtml_kses( get_the_title() ),
 		);
 
 		if ( is_single() ) {
